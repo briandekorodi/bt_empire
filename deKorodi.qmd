@@ -5,4 +5,9 @@ format: html
 editor: visual
 ---
 
-## 
+```{r configuration}
+#| message: false
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+```
