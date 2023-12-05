@@ -11,3 +11,5 @@ library(ggplot2)
 library(dplyr)
 library(tidyr)
 ```
+
+## Click [here](https://github.com/briandekorodi/bt_empire) to access the Github repository
