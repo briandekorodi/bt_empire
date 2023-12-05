@@ -85,3 +85,23 @@ star_systems |>
        x = "Relative radius",
        y = "Mass")
 ```
+
+### Question 6
+
+```{r}
+Extreme_stars <- star_systems |>
+  drop_na() |>
+  select(where(is.numeric)) |>
+  summarise("Star farthest from the sun" = max(Distance_from_sun),
+            "Star closest to the sun" = min(Distance_from_sun),
+            "Hottest star" = max(Equivalent_temperature),
+            "Coldest star" = min(Equivalent_temperature),
+            "Heaviest star" = max(Star_mass),
+            "Lightest star" = min(Star_mass),
+            "Widest star" = max(Relative_radius),
+            "Least wide star" = min(Relative_radius),
+            "Brightest star" = max(Relative_luminosity),
+            "Least bright star" = min(Relative_luminosity))
+
+knitr::kable(Extreme_stars)
+```
