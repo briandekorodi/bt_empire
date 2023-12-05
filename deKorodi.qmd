@@ -105,3 +105,7 @@ Extreme_stars <- star_systems |>
 
 knitr::kable(Extreme_stars)
 ```
+
+### Question 7
+
+Commit faction data sets to repository.
