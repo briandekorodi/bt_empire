@@ -144,3 +144,17 @@ AIU_factions <- faction_control |>
 
 knitr::kable(AIU_factions)
 ```
+
+### Question 10
+
+Merge both data sets based on faction key.
+
+```{r}
+all_factions <- merge(factions, faction_control, by=c("faction_key"))
+```
+
+Compute missing values.
+
+```{r}
+sum(is.na(all_factions))
+```
