@@ -62,3 +62,12 @@ class(star_systems$Star_mass) == "numeric"
 class(star_systems$Relative_radius) == "numeric"
 class(star_systems$Relative_luminosity) == "numeric"
 ```
+
+### Question 4
+
+```{r}
+basic_info <- star_systems |>
+  summarise("Number of observations" = nrow(star_systems),
+            "Number of variables" = ncol(star_systems),
+            "Missing values" = across(everything(), ~sum(is.na(.))))
+```
