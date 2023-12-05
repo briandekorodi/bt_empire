@@ -132,3 +132,15 @@ Load faction control data set.
 #| message: FALSE
 faction_control <- vroom("data/system%control.csv", locale = locale(grouping_mark = ".", decimal_mark = ",", encoding = "UTF-8"))
 ```
+
+### Question 9
+
+```{r}
+AIU_factions <- faction_control |>
+  drop_na() |>
+  summarise("Abandoned factions in 3040" = sum(faction_key == "A"),
+            "Independent systems in 3040" = sum(faction_key == "I"),
+            "Undiscovered systems in 3040" = sum(faction_key == "U"))
+
+knitr::kable(AIU_factions)
+```
