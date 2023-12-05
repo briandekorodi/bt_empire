@@ -71,3 +71,17 @@ basic_info <- star_systems |>
             "Number of variables" = ncol(star_systems),
             "Missing values" = across(everything(), ~sum(is.na(.))))
 ```
+
+### Question 5
+
+```{r}
+star_systems |>
+  filter(!is.na(Relative_radius)) |>
+  filter(!is.na(Star_mass)) |>
+  ggplot(aes(x = Relative_radius, y = Star_mass)) +
+  geom_point() +
+  geom_smooth() +
+  labs(title = "Mass of a star as a function of its relative radius",
+       x = "Relative radius",
+       y = "Mass")
+```
