@@ -109,3 +109,26 @@ knitr::kable(Extreme_stars)
 ### Question 7
 
 Commit faction data sets to repository.
+
+### Question 8
+
+Load faction data set.
+
+```{r}
+#| message: FALSE
+factions <- vroom("data/faction_list.csv", locale = locale(grouping_mark = ".", decimal_mark = ",", encoding = "UTF-8"))
+```
+
+Rename the variables to remove spaces.
+
+```{r}
+setnames(factions, old = c('Name Of The Faction','founding year','when ended'), 
+         new = c('Faction_name','Founding_year','End_year'))
+```
+
+Load faction control data set.
+
+```{r}
+#| message: FALSE
+faction_control <- vroom("data/system%control.csv", locale = locale(grouping_mark = ".", decimal_mark = ",", encoding = "UTF-8"))
+```
