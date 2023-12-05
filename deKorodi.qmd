@@ -13,3 +13,52 @@ library(tidyr)
 ```
 
 ## Click [here](https://github.com/briandekorodi/bt_empire) to access the Github repository
+
+### Question 2
+
+```{r}
+#| message: FALSE
+here::i_am("bt_empire.Rproj")
+```
+
+```{r}
+#| message: FALSE
+library(vroom)
+```
+
+```{r}
+#| message: FALSE
+star_systems <- vroom("data/Data_systems.csv", locale = locale(grouping_mark = ".", decimal_mark = ",", encoding = "UTF-8"))
+```
+
+Rename the variables to remove spaces in their names.
+
+```{r}
+#| message: FALSE
+library(data.table)
+```
+
+```{r}
+setnames(star_systems, old = c('Distance From The Sun','EQUIVALENT TEMPERATURE','star mass', 'Relative Radius', 'Relative Luminosity', 'STAR TYPE'), 
+         new = c('Distance_from_sun','Equivalent_temperature','Star_mass', 'Relative_radius', 'Relative_luminosity', 'Star_type'))
+```
+
+### Question 3
+
+Number of observations and variables:
+
+```{r}
+nrow(star_systems) == 1040
+ncol(star_systems) == 8
+```
+
+Checking numerical variables:
+
+```{r}
+class(star_systems$Star_idx) == "numeric"
+class(star_systems$Distance_from_sun) == "numeric"
+class(star_systems$Equivalent_temperature) == "numeric"
+class(star_systems$Star_mass) == "numeric"
+class(star_systems$Relative_radius) == "numeric"
+class(star_systems$Relative_luminosity) == "numeric"
+```
